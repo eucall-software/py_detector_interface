@@ -1,9 +1,9 @@
 # =============================================================================
-# 	  			Find external packages and libraries 
+# 	  			Find external packages and libraries
 # =============================================================================
 
 # Find python directories
-find_package(PythonLibs 2.7 REQUIRED)
+find_package(PythonLibs 3.4 REQUIRED)
 message(STATUS "Found PythonLibs includes at:    ${PYTHON_INCLUDE_DIRS}")
 include_directories(${PYTHON_INCLUDE_DIRS})
 
@@ -18,7 +18,7 @@ find_package(Geant4 REQUIRED
 )
 message(STATUS "Found Geant4 includes at:      ${Geant4_INCLUDE_DIR}")
 include_directories(
-    ${Geant4_INCLUDE_DIR} 
+    ${Geant4_INCLUDE_DIR}
     ${Geant4_INCLUDE_DIR}/CLHEP/Evaluation
     ${Geant4_INCLUDE_DIR}/CLHEP/Geometry
     ${Geant4_INCLUDE_DIR}/CLHEP/Random
@@ -42,7 +42,7 @@ set_target_properties(xercesc PROPERTIES
 )
 include_directories(
     ${XERCESC_ROOT}/include
- #   ${XERCESC_ROOT}/include/xercesc/dom 
+ #   ${XERCESC_ROOT}/include/xercesc/dom
  #   ${XERCESC_ROOT}/include/xercesc/framework
  #   ${XERCESC_ROOT}/include/xercesc/internal
  #   ${XERCESC_ROOT}/include/xercesc/parsers
@@ -72,7 +72,7 @@ if(UNIX)
     # Set additional flages for debugging if required
     if(${DEBUG})
         SET(CMAKE_CXX_FLAGS "-g -DDEBUGMODE=1 ${CMAKE_CXX_FLAGS}")
-    endif()    
+    endif()
 endif()
 
 # =============================================================================
@@ -82,13 +82,13 @@ endif()
 # Create the library with all the content of this project
 add_library(py_detector_interface SHARED
 # Photon Entry
-    PhotonEntry.cc 
+    PhotonEntry.cc
 # InteractionEntry
-	InteractionEntry.cc 
+	InteractionEntry.cc
 # ChargeEntry
-	ChargeEntry.cc 
+	ChargeEntry.cc
 # PhotonData
-	PhotonData.cc 
+	PhotonData.cc
 # Interaction Data
 	InteractionData.cc
 # ChargeMatrix
@@ -96,13 +96,13 @@ add_library(py_detector_interface SHARED
 # Constants
     Constants.cc
 # ParticleSim
-	ParticleSim.cc 
+	ParticleSim.cc
 # ChargeSIm
-	ChargeSim.cc 
+	ChargeSim.cc
 # Export to python
     pythonExtension.cc
 )
-target_link_libraries(py_detector_interface 
+target_link_libraries(py_detector_interface
     ${PYTHON_LIBRARIES}
     ${Boost_LIBRARIES}
     xercesc
