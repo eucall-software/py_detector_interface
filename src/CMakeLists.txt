@@ -8,7 +8,7 @@ message(STATUS "Found PythonLibs includes at:    ${PYTHON_INCLUDE_DIRS}")
 include_directories(${PYTHON_INCLUDE_DIRS})
 
 # boost
-find_package(Boost COMPONENTS python REQUIRED)
+find_package(Boost 1.63  COMPONENTS python REQUIRED)
 message(STATUS "Found boost includes at:    ${Boost_INCLUDE_DIRS}")
 include_directories(${Boost_INCLUDE_DIRS})
 
