@@ -14,7 +14,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 # find the Geant4 package
 find_package(Geant4 REQUIRED
-    HINTS ${GEANT4_ROOT}/lib64/Geant4-10.3.1/Geant4Config.cmake
+    HINTS ${GEANT4_ROOT}/lib64/Geant4-10.4.0/Geant4Config.cmake
 )
 message(STATUS "Found Geant4 includes at:      ${Geant4_INCLUDE_DIR}")
 include_directories(
@@ -38,7 +38,7 @@ include_directories(${xcsit_INCLUDE_DIRS})
 # xercesc library
 add_library(xercesc SHARED IMPORTED)
 set_target_properties(xercesc PROPERTIES
-    IMPORTED_LOCATION ${XERCESC_ROOT}/lib/libxerces-c.so
+    IMPORTED_LOCATION ${XERCESC_ROOT}/lib64/libxerces-c.so
 )
 include_directories(
     ${XERCESC_ROOT}/include

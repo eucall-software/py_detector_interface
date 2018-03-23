@@ -13,23 +13,23 @@
 #   Date:   27 August 2017
 #
 
-# Create a new folder for the build 
+# Create a new folder for the build
 rm -r ./build
 mkdir ./build
 cd ./build
 
 # Create a Makefile, here the pathes have to be changed
 cmake \
--DGEANT4_ROOT=/home/burcherj/.local \
--DXERCESC_ROOT=/home/burcherj/.local \
--DXCSIT_ROOT=/home/burcherj/.local \
--DBOOST_ROOT=/home/burcherj/.local \
--DCMAKE_INSTALL_PREFIX=/home/burcherj/.local \
--DDEBUG=ON \
+-DGEANT4_ROOT=/data/netapp/s2e/simex \
+-DXERCESC_ROOT=/data/netapp/s2e/simex \
+-DXCSIT_ROOT=/data/netapp/s2e/simex \
+-DBOOST_ROOT=/data/netapp/s2e/simex \
+-DCMAKE_INSTALL_PREFIX=/data/netapp/s2e/simex \
+-DDEBUG=OFF \
 ..
 
 # Compile and link the c++ classes
-make 
+make -j8
 
 # Copy files to the CMAKE_INSTALL_PREFIX location
-make install
+#make install
